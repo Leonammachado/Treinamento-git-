@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora</title>
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body>
+	<h1>Calculadora</h1>
+	
+		<div class="caixa-numero">	
+			<label>Numero 1: </label>
+			<input id="n1" type="text" name="n1">
+		</div>
+		<br>
+		<div class="caixa-numero">
+			<label>Numero 2: </label>
+			<input id="n2" type="text" name="n2">
+		</div>
+		<div class="caixa-numero resultado">
+			Resultado : <span id = "resultado"></span>
+		</div>
+		<button  class="botao" id="somar">somar</button>
+		<button  class="botao" id="multiplicar">multiplicar</button>
+		<button  class="botao" id="dividir">dividir</button>
+		<button  class="botao" id="subtrair">subtrair</button>
+		<button  class="botao" id="Limpar">Limpar</button>
+		 
+	
+</body>
+
+<script type="text/javascript">
+	var n1 = document.querySelector ('#n1')
+	var n2 = document.querySelector ('#n2')
+	var tag_resultado = document.querySelector('#resultado')
+	documet.querySelector('#somar').addEventListener('click',somar)
+	documet.querySelector('#multiplicar').addEventListener('click',multiplicar)
+	documet.querySelector('#dividir').addEventListener('click',dividir)
+	documet.querySelector('#subtrair').addEventListener('click',subtrair)
+
+	  document.querySelectorAll('input'). forEach(
+	  	function (input_html){
+	    input_html.addEventListener('keyup', function 
+	    	(evento){
+	    		var entrada_usuario = parseInt(evento.target.value)
+
+	    		if(isNaN(entrada_usuario) || !isFinite(
+	    			entrada_usuario)){
+	    			evento.target.value = ''
+	    		}
+	    	})	  	}
+
+	  	)
+
+
+
+	document.querySelector('#dividir').addEventListener('click', function(){
+     var resultado = parseInt(n1.value) / parseInt(n2.value)
+		
+		if(isNaN(resultado) || !isFinite(resultado)){
+			alert('erro')
+			return
+		}
+		tag_resultado.textContent = resultado
+
+	})
+
+	document.querySelector('#Limpar').addEventListener('click', function(){
+		n1.value = ''
+		n2.value = ''
+		tag_resultado.textContent = ''
+	})
+
+
+       function somar (){
+		var resultado = parseInt(n1.value) + parseInt(n2.value)
+		
+		tag_resultado.textContent = resultado
+
+	}
+
+	function subtrair (){
+		var resultado = parseInt(n1.value) - parseInt(n2.value)
+		
+		tag_resultado.textContent = resultado
+
+	}
+
+	function multiplicar (){
+		var resultado = parseInt(n1.value) * parseInt(n2.value)
+		
+		tag_resultado.textContent = resultado
+
+	}
+
+</script>
+</html>
